@@ -2,6 +2,7 @@
 extends Node
 
 var mobile_controls_enabled = false
+var _last_show_controls: bool = false
 
 @export var player_path: NodePath = NodePath("Player")
 signal score_changed(new_score)
@@ -10,6 +11,7 @@ signal player_died
 var score: int = 0
 
 func _ready() -> void:
+	TimeManager.reset()
 	PoolManager.reset_all_pools()
 	if not PoolManager.has_pool("Coin"):
 		PoolManager.register_pool("Coin", preload("res://scenes/coin.tscn"), 20)
@@ -18,9 +20,10 @@ func _ready() -> void:
 		
 func _process(_delta: float) -> void:
 	var cur = get_tree().current_scene
-	if cur and mobile_controls_enabled and cur.scene_file_path.ends_with("game.tscn"):
-		MobileControls.canvas.visible = mobile_controls_enabled
-
+	var show_controls = cur and mobile_controls_enabled and cur.scene_file_path == "res://scenes/game.tscn"
+	if show_controls != _last_show_controls:
+		MobileControls._on_mobile_controls_toggled(show_controls)
+		_last_show_controls = show_controls
 
 func add_point() -> void:
 	score += 1
@@ -41,7 +44,7 @@ func handle_player_death() -> void:
 	emit_signal("player_died")
 	
 func toggle_mobile_controls() -> void:
-	mobile_controls_enabled = true
+	mobile_controls_enabled = !mobile_controls_enabled
 	print("Mobile controls now:", mobile_controls_enabled)
 	
 func enable_double_jump() -> void:

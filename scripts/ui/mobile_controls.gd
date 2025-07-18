@@ -14,5 +14,4 @@ func _ready() -> void:
 	canvas.visible = false
 
 func _on_mobile_controls_toggled(enabled: bool) -> void:
-	print_debug("MobileControlsUI: got toggle → ", enabled)
-	visible = enabled
+	canvas.visible = enabled
