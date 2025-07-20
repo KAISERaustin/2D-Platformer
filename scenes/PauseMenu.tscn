@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://coeah8h0tmluu" path="res://scripts/ui/pause_menu.gd" id="1_jvnd5"]
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_jvnd5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,13 +28,20 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Resume"
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Options Menu"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Exit to Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

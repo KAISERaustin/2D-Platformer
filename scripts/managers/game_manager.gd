@@ -12,6 +12,7 @@ var score: int = 0
 
 func _ready() -> void:
 	TimeManager.reset()
+	process_mode = Node.PROCESS_MODE_ALWAYS	
 	PoolManager.reset_all_pools()
 	if not PoolManager.has_pool("Coin"):
 		PoolManager.register_pool("Coin", preload("res://scenes/coin.tscn"), 20)

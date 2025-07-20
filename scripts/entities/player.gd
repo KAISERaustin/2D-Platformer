@@ -70,6 +70,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_body_check_body_entered(_body) -> void:
 	if _body.is_in_group("enemy_slime"):
+		
 		state_machine.enter_state(death_state)
 
 func landed_on_enemy_slime() -> void:
@@ -116,4 +117,5 @@ func _start_dash(direction: int) -> void:
 
 func _on_body_check_area_entered(area: Area2D) -> void:
 	if area.is_in_group("win"):
+		AudioManager._on_player_won()
 		state_machine.enter_state(win_state)

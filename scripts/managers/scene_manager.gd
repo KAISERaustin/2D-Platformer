@@ -17,6 +17,7 @@ var is_paused: bool        = false
 
 func _ready() -> void:
 	_fade_layer.visible = false
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func change_scene(path: String) -> void:
 	var cur = get_tree().current_scene

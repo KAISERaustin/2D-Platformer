@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dl3cdj4lpf52i" path="res://scripts/ui/main_menu.gd" id="1_wu84c"]
 
 [node name="MainMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,12 +12,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_wu84c")
-start_button_path = NodePath("VBoxContainer/StartButton")
-options_button_path = NodePath("VBoxContainer/OptionsButton")
-exit_button_path = NodePath("VBoxContainer/QuitButton")
-background_path = NodePath("")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,6 +30,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
+process_mode = 3
 z_index = 1
 layout_mode = 2
 focus_mode = 1
@@ -40,12 +39,14 @@ text = "Start"
 icon_alignment = 1
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
+process_mode = 3
 z_index = 1
 layout_mode = 2
 focus_mode = 1
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
+process_mode = 3
 z_index = 1
 layout_mode = 2
 focus_mode = 1

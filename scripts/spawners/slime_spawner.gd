@@ -3,7 +3,7 @@ extends Spawner
 
 @export var spawn_positions: Array[Vector2] = []
 
-const SPAWN_DISTANCE = 200.0
+const SPAWN_DISTANCE = 400.0
 const DESPAWN_BUFFER = 50.0
 
 var _spawn_data: Array = []

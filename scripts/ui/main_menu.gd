@@ -1,29 +1,27 @@
 # res://scripts/ui/main_menu.gd
 extends Control
 
-@export var start_button_path:   NodePath = NodePath("StartButton")
-@export var options_button_path: NodePath = NodePath("OptionsButton")
-@export var exit_button_path:    NodePath = NodePath("ExitButton")
-@export var background_path:     NodePath = NodePath("BackgroundImage")
+@export var start_button_path:    NodePath = NodePath("VBoxContainer/StartButton")
+@export var options_button_path:  NodePath = NodePath("VBoxContainer/OptionsButton")
+@export var quit_button_path:     NodePath = NodePath("VBoxContainer/QuitButton")
 
-@onready var _start_button   := get_node(start_button_path)   as Button
-@onready var _options_button := get_node(options_button_path) as Button
-@onready var _exit_button    := get_node(exit_button_path)    as Button
+@onready var start_button:    Button = get_node(start_button_path)
+@onready var options_button:  Button = get_node(options_button_path)
+@onready var quit_button:     Button = get_node(quit_button_path)
 
 func _ready() -> void:
-	_start_button.pressed.connect(_on_start_button_pressed)
-	_options_button.pressed.connect(_on_options_button_pressed)
-	_exit_button.pressed.connect(_on_exit_button_pressed)
+	# wire up the three buttons
+	start_button.pressed.connect(_on_start_pressed)
+	options_button.pressed.connect(_on_options_pressed)
+	quit_button.pressed.connect(_on_quit_pressed)
 
-func _on_start_button_pressed() -> void:
-	print("▶ Start pressed")
+func _on_start_pressed() -> void:
+	get_tree().paused = false
+	SceneManager.is_paused = false
 	SceneManager.change_scene("res://scenes/game.tscn")
 
-
-func _on_options_button_pressed() -> void:
-	print("▶ Options pressed")
+func _on_options_pressed() -> void:
 	SceneManager.change_scene("res://scenes/option_menu.tscn")
 
-func _on_exit_button_pressed() -> void:
-	print("▶ Exit pressed")
+func _on_quit_pressed() -> void:
 	get_tree().quit()

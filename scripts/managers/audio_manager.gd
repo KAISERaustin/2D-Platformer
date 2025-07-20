@@ -9,6 +9,7 @@ extends Node
 
 func _ready() -> void:
 	main_menu_player.play()
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	SceneManager.connect("scene_loaded", Callable(self, "_on_scene_loaded"))
 	GameManager.connect("player_died",   Callable(self, "_on_player_died"))
 
@@ -24,5 +25,9 @@ func _on_scene_loaded() -> void:
 		level_music_player.stop()
 
 func _on_player_died() -> void:
+	main_menu_player.stop()
+	level_music_player.stop()
+
+func _on_player_won() -> void:
 	main_menu_player.stop()
 	level_music_player.stop()

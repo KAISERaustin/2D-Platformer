@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://d1dq0mprty0tc"]
+[gd_scene load_steps=16 format=4 uid="uid://d1dq0mprty0tc"]
 
 [ext_resource type="PackedScene" uid="uid://c4lm7oc3k17yx" path="res://scenes/AudioManager.tscn" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://d21xhwirpnols" path="res://scenes/Player.tscn" id="1_uwrxv"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ci2lxo5mrot00" path="res://assets/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="Script" uid="uid://bn62v8066tt68" path="res://scripts/spawners/slime_spawner.gd" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://61ww3452efl8" path="res://scenes/dash_power_up.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://ctv4q8poxttqj" path="res://scenes/in_game_option_menu.tscn" id="9_dinhu"]
 [ext_resource type="PackedScene" uid="uid://bfrni0bppiue5" path="res://scenes/game_manager.tscn" id="9_kvuet"]
+[ext_resource type="PackedScene" uid="uid://c7nxjk5oppc2h" path="res://scenes/PauseMenu.tscn" id="10_kvuet"]
 [ext_resource type="PackedScene" uid="uid://cpkwqe5cjbwst" path="res://scenes/double_jump_power_up.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bxotjlnrlvcxw" path="res://scenes/level_won_area.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://hivf6btt0oqt" path="res://scenes/GameUI.tscn" id="12_dinhu"]
@@ -296,9 +298,15 @@ script = ExtResource("7_u5sy4")
 spawn_positions = Array[Vector2]([Vector2(200, 0), Vector2(296, -17), Vector2(760, 112), Vector2(296, 320), Vector2(200, 320), Vector2(104, 320), Vector2(8, 320), Vector2(-72, 320), Vector2(-448, -145), Vector2(-712, -161)])
 
 [node name="LevelWonArea" parent="." instance=ExtResource("11_kvpfn")]
-position = Vector2(-1208, -345)
+position = Vector2(-76, -26)
+script = null
 
 [node name="GameUi" parent="." instance=ExtResource("12_dinhu")]
+
+[node name="PauseMenu" parent="GameUi" instance=ExtResource("10_kvuet")]
+z_index = 1
+
+[node name="InGameOptionMenu" parent="GameUi" instance=ExtResource("9_dinhu")]
 
 [node name="PowerUps" type="Node" parent="."]
 

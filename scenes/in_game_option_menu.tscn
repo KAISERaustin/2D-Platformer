@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctv4q8poxttqj"]
+[gd_scene load_steps=2 format=3 uid="uid://ctv4q8poxttqj"]
 
 [ext_resource type="Script" uid="uid://kunem7kvdc3l" path="res://scripts/ui/in_game_option_menu.gd" id="1_h3wso"]
-[ext_resource type="PackedScene" uid="uid://c7nxjk5oppc2h" path="res://scenes/PauseMenu.tscn" id="2_a4f7h"]
 
 [node name="InGameOptionMenu" type="Control"]
+process_mode = 3
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
@@ -12,9 +12,9 @@ offset_bottom = 720.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_h3wso")
-pause_menu_scene = ExtResource("2_a4f7h")
 
 [node name="BoxContainer" type="VBoxContainer" parent="."]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,10 +29,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="EnableMobileControls" type="Button" parent="BoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Enable Mobile Controls"
 
 [node name="Pause Menu" type="Button" parent="BoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Pause Menu"
 
