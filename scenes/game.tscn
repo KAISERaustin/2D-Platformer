@@ -298,8 +298,8 @@ script = ExtResource("7_u5sy4")
 spawn_positions = Array[Vector2]([Vector2(200, 0), Vector2(296, -17), Vector2(760, 112), Vector2(296, 320), Vector2(200, 320), Vector2(104, 320), Vector2(8, 320), Vector2(-72, 320), Vector2(-448, -145), Vector2(-712, -161)])
 
 [node name="LevelWonArea" parent="." instance=ExtResource("11_kvpfn")]
-position = Vector2(-76, -26)
-script = null
+z_index = 1
+position = Vector2(-1208, -344)
 
 [node name="GameUi" parent="." instance=ExtResource("12_dinhu")]
 
