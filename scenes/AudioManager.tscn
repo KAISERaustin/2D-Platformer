@@ -5,10 +5,13 @@
 [ext_resource type="AudioStream" uid="uid://cd8qrp831j3u6" path="res://music/overworld_level_one_music.mp3" id="2_v6v0x"]
 
 [node name="AudioManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_v6v0x")
 
 [node name="MainMenuMusic" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("2_4tesi")
 
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("2_v6v0x")
