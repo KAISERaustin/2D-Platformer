@@ -55,20 +55,18 @@ func reload_current() -> void:
 	var cur = get_tree().current_scene.scene_file_path
 	change_scene(cur)
 
-func return_slime_to_pool(slime: CharacterBody2D) -> void:
-	slime.slime_is_dead       = false
-	slime.visible             = false
-	slime.velocity            = Vector2.ZERO
-	slime.direction           = 1
-	slime.head_hit_check.set_deferred("monitoring", true)
-	slime.body_check.set_deferred("monitoring", true)
-	slime.ground_check.set_deferred("disabled", false)
-	slime.ray_cast_left.set_deferred("enabled", true)
-	slime.ray_cast_right.set_deferred("enabled", true)
-	slime.death_timer.stop()
-	slime.slime_kill.stop()
-	slime.animated_sprite.flip_h = false
-	slime.animated_sprite.play("default")
-	slime.set_physics_process(false)
-	slime.set_process(false)
-	PoolManager.free_instance("Slime", slime)
+func return_mushroom_to_pool(mushroom: CharacterBody2D) -> void:
+	mushroom.mushroom_is_dead       = false
+	mushroom.visible             = false
+	mushroom.velocity            = Vector2.ZERO
+	mushroom.direction           = 1
+	mushroom.head_hit_check.set_deferred("monitoring", true)
+	mushroom.body_check.set_deferred("monitoring", true)
+	mushroom.ground_check.set_deferred("disabled", false)
+	mushroom.death_timer.stop()
+	mushroom.mushroom_kill.stop()
+	mushroom.animated_sprite.flip_h = false
+	mushroom.animated_sprite.play("default")
+	mushroom.set_physics_process(false)
+	mushroom.set_process(false)
+	PoolManager.free_instance("mushroom", mushroom)

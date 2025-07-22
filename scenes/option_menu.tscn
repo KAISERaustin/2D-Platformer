@@ -40,3 +40,6 @@ process_mode = 3
 z_index = 1
 layout_mode = 2
 text = "Main Menu"
+
+[connection signal="pressed" from="BoxContainer/EnableMobileControls" to="." method="_on_enable_mobile_controls_pressed"]
+[connection signal="pressed" from="BoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

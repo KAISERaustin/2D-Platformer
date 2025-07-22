@@ -17,10 +17,10 @@ func _on_scene_loaded() -> void:
 	var new_path = get_tree().current_scene.scene_file_path
 	var old_path = SceneManager.previous_scene
 
-	if old_path.ends_with("main_menu.tscn") and new_path.ends_with("game.tscn"):
+	if old_path.ends_with("main_menu.tscn") and new_path.ends_with("NewEnvironment.tscn"):
 		main_menu_player.stop()
 		level_music_player.play()
-	elif old_path.ends_with("game.tscn") and new_path.ends_with("main_menu.tscn"):
+	elif old_path.ends_with("NewEnvironment.tscn") and new_path.ends_with("main_menu.tscn"):
 		main_menu_player.play()
 		level_music_player.stop()
 

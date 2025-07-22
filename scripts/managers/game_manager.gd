@@ -16,12 +16,16 @@ func _ready() -> void:
 	PoolManager.reset_all_pools()
 	if not PoolManager.has_pool("Coin"):
 		PoolManager.register_pool("Coin", preload("res://scenes/coin.tscn"), 20)
-	if not PoolManager.has_pool("Slime"):
-		PoolManager.register_pool("Slime", preload("res://scenes/slime.tscn"), 10)
+	if not PoolManager.has_pool("Mushroom"):
+		PoolManager.register_pool("Mushroom", preload("res://scenes/mushroom_enemy.tscn"), 10)
 		
 func _process(_delta: float) -> void:
 	var cur = get_tree().current_scene
-	var show_controls = cur and mobile_controls_enabled and cur.scene_file_path == "res://scenes/game.tscn"
+	var show_controls = false
+	
+	if cur and mobile_controls_enabled:
+		show_controls = cur.scene_file_path == "res://scenes/New Environment/NewEnvironment.tscn"
+		
 	if show_controls != _last_show_controls:
 		MobileControls._on_mobile_controls_toggled(show_controls)
 		_last_show_controls = show_controls

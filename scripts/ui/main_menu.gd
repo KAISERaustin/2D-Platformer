@@ -9,19 +9,14 @@ extends Control
 @onready var options_button:  Button = get_node(options_button_path)
 @onready var quit_button:     Button = get_node(quit_button_path)
 
-func _ready() -> void:
-	# wire up the three buttons
-	start_button.pressed.connect(_on_start_pressed)
-	options_button.pressed.connect(_on_options_pressed)
-	quit_button.pressed.connect(_on_quit_pressed)
-
-func _on_start_pressed() -> void:
+func _on_start_button_pressed() -> void:
 	get_tree().paused = false
 	SceneManager.is_paused = false
-	SceneManager.change_scene("res://scenes/game.tscn")
+	SceneManager.change_scene("res://scenes/New Environment/NewEnvironment.tscn")
+	TimeManager.reset()
 
-func _on_options_pressed() -> void:
+func _on_options_button_pressed() -> void:
 	SceneManager.change_scene("res://scenes/option_menu.tscn")
 
-func _on_quit_pressed() -> void:
+func _on_quit_button_pressed() -> void:
 	get_tree().quit()

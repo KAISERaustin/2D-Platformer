@@ -11,6 +11,3 @@ func reset() -> void:
 
 func slow_motion(factor: float = 0.5) -> void:
 	Engine.time_scale = factor
-
-func restore() -> void:
-	Engine.time_scale = default_scale
